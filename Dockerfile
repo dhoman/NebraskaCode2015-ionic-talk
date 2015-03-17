@@ -12,7 +12,7 @@ RUN apt-get -y -q install nodejs-legacy
 
 RUN wget https://github.com/hakimel/reveal.js/archive/master.zip
 RUN unzip master.zip
-RUN mv /master /revealjs
+RUN mv /reveal.js-master /revealjs
 
 RUN mkdir -p /revealjs/md
 

@@ -6,7 +6,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
 RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
 RUN apt-get update
 
-RUN apt-get -y -q install wget
+RUN apt-get -y -q install wget zip unzip
 RUN apt-get -y -q install nodejs npm
 RUN apt-get -y -q install nodejs-legacy
 

@@ -196,6 +196,124 @@ ionic serve //will load the app in browser
 					<h2>Demo Time</h2>
 				</section>
 
+				<section>
+					<section>
+						<h2>So that was cool</h2>
+					</section>
+					<section>
+						<h2>Style</h2>
+						<h3>scss/ionic.app.scss</h3>
+					<pre><code data-trim>
+/*To customize the look and feel of Ionic, you can override the these variables
+*/
+$light:          #fff !default;
+$stable:         #f8f8f8 !default;
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+					</code></pre>
+					</section>
+
+					<section>
+						<h2>Angular Tidbits</h2>
+						<ul>
+							<li>Directives (custom HTML elements)
+								<ul><li>Angular Directives(ng-repeat, ng-model)</li>
+								<li>Ionic Directives(ion-view, ion-content)</li>
+								</ul>
+							</li>
+
+							<li>{{variable}}</li>
+							<li>Filters ( {{variable | filter}} ) </li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>www/js/app.js</h2>
+					<pre><code data-trim>
+
+angular.module('starter', ['ionic', 'starter.controllers'])
+.run(function($ionicPlatform) {
+	...
+})
+.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+
+  .state('app', {
+  	...
+  })
+  .state('app.playlists', {
+    url: "/playlists",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/playlists.html",
+        controller: 'PlaylistsCtrl'
+      }
+    }
+  })
+					</code></pre>
+					</section>
+
+					<section>
+						<h2>www/js/controllers.js</h2>
+					<pre><code data-trim>
+angular.module('starter.controllers', [])
+.controller('AppCtrl', ...)
+.controller('PlayListsCtrl', function($scope){
+  $scope.playlists = [
+    { title: 'Reggae', id: 1 },
+    { title: 'Chill', id: 2 },
+    { title: 'Dubstep', id: 3 },
+    { title: 'Indie', id: 4 },
+    { title: 'Rap', id: 5 },
+    { title: 'Cowbell', id: 6 }
+  ];
+})
+.controller('PlaylistCtrl', function($scope, $stateParams) {
+});
+
+					</code></pre>
+					</section>
+
+
+					<section>
+						<h2>www/templates/playlists.html</h2>
+					<pre><code data-trim>
+<ion-view view-title="Playlists">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+					</code></pre>
+					</section>
+					<section>
+						<h2>www/templates/playlist.html</h2>
+					<pre><code data-trim>
+angular.module('starter.controllers', [])
+.controller('AppCtrl', ...)
+.controller('PlayListsCtrl', function($scope){
+  $scope.playlists = [
+    { title: 'Reggae', id: 1 },
+    { title: 'Chill', id: 2 },
+    { title: 'Dubstep', id: 3 },
+    { title: 'Indie', id: 4 },
+    { title: 'Rap', id: 5 },
+    { title: 'Cowbell', id: 6 }
+  ];
+})
+.controller('PlaylistCtrl', function($scope, $stateParams) {
+});
+
+					</code></pre>
+					</section>
+				</section>
+
 
 				<section>
 					<h2>Publishing</h2>
